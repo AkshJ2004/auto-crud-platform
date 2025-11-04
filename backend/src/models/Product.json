@@ -1,0 +1,12 @@
+{
+  "name": "Product",
+  "fields": [
+    { "name": "name", "type": "string", "required": true },
+    { "name": "price", "type": "number", "required": true }
+  ],
+  "rbac": {
+    "Admin": ["all"],
+    "Manager": ["create", "read", "update"],
+    "Viewer": ["read"]
+  }
+}
