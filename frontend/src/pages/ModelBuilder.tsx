@@ -269,7 +269,7 @@ export default function ModelBuilder() {
                   <input
                     type="checkbox"
                     checked={model.rbac[role].includes('all')}
-                    onChange={(e) => toggleAllPermissions(role)}
+                    onChange={() => toggleAllPermissions(role)}
                   />
                 </td>
                 {['create', 'read', 'update', 'delete'].map(perm => (
