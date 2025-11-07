@@ -26,6 +26,19 @@ export const applyCrudRoutes = (router: Router, model: any) => {
     }
   });
 
+  // READ ONE
+  router.get('/:id', async (req: Request, res: Response) => {
+    try {
+      const data = await (prisma as any)[name].findUnique({
+        where: { id: Number(req.params.id) }
+      });
+      if (!data) return res.status(404).json({ error: 'Record not found' });
+      res.json(data);
+    } catch (err) {
+      res.status(400).json({ error: (err as Error).message });
+    }
+  });
+
   // UPDATE
   router.put('/:id', async (req: Request, res: Response) => {
     try {
